@@ -1,37 +1,62 @@
-const equation = [];
+let equation = "";
 const calcBtns = document.querySelectorAll(".calcBtn");
+let total = 0;
+let operator = "";
 
 for (let i = 0; i < calcBtns.length; i++) {
     calcBtns[i].addEventListener("click", calculate);
 }
 
 function calculate(e) {
-    console.log(e.target.value);
+    // console.log(e.target.value);
     if (e.target.value > 0) {
-        equation.push(e.target.value);
+        equation += e.target.value;
+        switch (operator) {
+            case "+":
+                total += parseInt(e.target.value);
+                operator = "";
+                break;
+            case "-":
+                total -= parseInt(e.target.value);
+                operator = "";
+                break;
+            case "*":
+                total *= parseInt(e.target.value);
+                operator = "";
+                break;
+            case "/":
+                total /= parseInt(e.target.value);
+                operator = "";
+                break;
+        }
     } else {
         switch (e.target.value) {
             case "+":
                 console.log("Addition");
-                equation.push(e.target.value);
+                operator = "+";
+                equation += e.target.value;
                 break;
             case "-":
                 console.log("Subtraction");
-                equation.push(e.target.value);
+                operator = "-";
+                equation += e.target.value;
                 break;
             case "*":
                 console.log("Multiply");
-                equation.push(e.target.value);
+                operator = "*";
+                equation += e.target.value;
                 break;
             case "/":
                 console.log("Divide");
-                equation.push(e.target.value);
+                operator = "/";
+                equation += e.target.value;
                 break;
             case "=":
                 console.log("Equals");
-                equation.push(e.target.value);
                 break;
+                equation += e.target.value;
         }
     }
+    console.log(total);
     console.log(equation);
 }
