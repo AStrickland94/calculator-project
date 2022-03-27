@@ -10,29 +10,49 @@
     </head>
     <body>
         <main>
-            <form>
-                <p></p>
-                <h2></h2>
-                <input type="button" value="9" class="calcBtn" />
-                <input type="button" value="8" class="calcBtn" />
-                <input type="button" value="7" class="calcBtn" />
-                <input type="button" value="6" class="calcBtn" />
-                <input type="button" value="5" class="calcBtn" />
-                <input type="button" value="4" class="calcBtn" />
-                <input type="button" value="3" class="calcBtn" />
-                <input type="button" value="2" class="calcBtn" />
-                <input type="button" value="1" class="calcBtn" />
-                <input type="button" value="0" class="calcBtn" />
-                <input type="button" value="+" class="calcBtn" />
-                <input type="button" value="-" class="calcBtn" />
-                <input type="button" value="*" class="calcBtn" />
-                <input type="button" value="/" class="calcBtn" />
-                <input type="button" value="=" class="calcBtn" />
-                <input type="button" value="." class="calcBtn" />
-                <input type="button" value="del" class="calcBtn" />
-                <input type="button" value="C" class="calcBtn" />
-                <input type="button" value="neg" class="calcBtn" />
-                <input type="button" value="**" class="calcBtn" />
+            <form class="calc">
+                <p class="calc__formula"></p>
+                <h2 class="calc__ans"></h2>
+                <input type="button" value="C" class="calc__btn" />
+                <input type="button" value="neg" class="calc__btn" />
+                <input type="button" value="**" class="calc__btn" />
+                <input
+                    type="button"
+                    value="/"
+                    class="calc__btn calc__btn--oper"
+                />
+                <input type="button" value="7" class="calc__btn" />
+                <input type="button" value="8" class="calc__btn" />
+                <input type="button" value="9" class="calc__btn" />
+                <input
+                    type="button"
+                    value="*"
+                    class="calc__btn calc__btn--oper"
+                />
+                <input type="button" value="4" class="calc__btn" />
+                <input type="button" value="5" class="calc__btn" />
+                <input type="button" value="6" class="calc__btn" />
+                <input
+                    type="button"
+                    value="-"
+                    class="calc__btn calc__btn--oper"
+                />
+                <input type="button" value="1" class="calc__btn" />
+                <input type="button" value="2" class="calc__btn" />
+                <input type="button" value="3" class="calc__btn" />
+                <input
+                    type="button"
+                    value="+"
+                    class="calc__btn calc__btn--oper"
+                />
+                <input type="button" value="0" class="calc__btn" />
+                <input type="button" value="." class="calc__btn" />
+                <input type="button" value="del" class="calc__btn" />
+                <input
+                    type="button"
+                    value="="
+                    class="calc__btn calc__btn--equal"
+                />
             </form>
         </main>
     </body>
