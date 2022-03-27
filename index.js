@@ -1,5 +1,7 @@
-let equation = "";
-const calcBtns = document.querySelectorAll(".calcBtn");
+let formula = "";
+const calcBtns = document.querySelectorAll(".calc__btn");
+const formulaOutput = document.querySelector(".calc__formula");
+const totalOutput = document.querySelector(".calc__ans");
 let operator = "";
 let total = 0;
 
@@ -10,7 +12,7 @@ for (let i = 0; i < calcBtns.length; i++) {
 function calculate(e) {
     // console.log(e.target.value);
     if (e.target.value >= 0) {
-        equation += e.target.value;
+        formula += e.target.value;
         switch (operator) {
             case "+":
                 total += parseInt(e.target.value);
@@ -34,29 +36,31 @@ function calculate(e) {
             case "+":
                 console.log("Addition");
                 operator = "+";
-                equation += e.target.value;
+                formula += e.target.value;
                 break;
             case "-":
                 console.log("Subtraction");
                 operator = "-";
-                equation += e.target.value;
+                formula += e.target.value;
                 break;
             case "*":
                 console.log("Multiply");
                 operator = "*";
-                equation += e.target.value;
+                formula += e.target.value;
                 break;
             case "/":
                 console.log("Divide");
                 operator = "/";
-                equation += e.target.value;
+                formula += e.target.value;
                 break;
             case "=":
                 console.log("Equals");
-                equation += e.target.value;
+                formula += e.target.value;
                 break;
         }
     }
-    console.log(total);
-    console.log(equation);
+    // console.log(total);
+    // console.log(formula);
+    formulaOutput.innerText = formula;
+    totalOutput.innerText = total;
 }

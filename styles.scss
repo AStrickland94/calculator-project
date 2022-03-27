@@ -1,0 +1,42 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+
+main {
+    display: flex;
+    justify-content: center;
+}
+
+.calc {
+    margin-top: 50px;
+    display: grid;
+    grid-template-columns: repeat(4, 50px);
+    border: 2px solid black;
+
+    &__btn {
+        height: 50px;
+        width: 50px;
+        background-color: #1e2326;
+        color: white;
+
+        &--oper {
+            background-color: #5e4bb6;
+        }
+
+        &--equal {
+            background-color: gold;
+            color: black;
+        }
+    }
+
+    &__formula {
+        grid-column: 1 / 5;
+        text-align: right;
+    }
+
+    &__ans {
+        grid-column: 1 / 5;
+        text-align: right;
+    }
+}

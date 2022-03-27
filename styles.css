@@ -1,1 +1,37 @@
+* {
+  padding: 0;
+  margin: 0;
+}
 
+main {
+  display: flex;
+  justify-content: center;
+}
+
+.calc {
+  margin-top: 50px;
+  display: grid;
+  grid-template-columns: repeat(4, 50px);
+  border: 2px solid black;
+}
+.calc__btn {
+  height: 50px;
+  width: 50px;
+  background-color: #1e2326;
+  color: white;
+}
+.calc__btn--oper {
+  background-color: #5e4bb6;
+}
+.calc__btn--equal {
+  background-color: gold;
+  color: black;
+}
+.calc__formula {
+  grid-column: 1/5;
+  text-align: right;
+}
+.calc__ans {
+  grid-column: 1/5;
+  text-align: right;
+}
