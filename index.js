@@ -1,7 +1,7 @@
 let equation = "";
 const calcBtns = document.querySelectorAll(".calcBtn");
-let total = 0;
 let operator = "";
+let total = 0;
 
 for (let i = 0; i < calcBtns.length; i++) {
     calcBtns[i].addEventListener("click", calculate);
@@ -9,7 +9,7 @@ for (let i = 0; i < calcBtns.length; i++) {
 
 function calculate(e) {
     // console.log(e.target.value);
-    if (e.target.value > 0) {
+    if (e.target.value >= 0) {
         equation += e.target.value;
         switch (operator) {
             case "+":
@@ -53,8 +53,8 @@ function calculate(e) {
                 break;
             case "=":
                 console.log("Equals");
-                break;
                 equation += e.target.value;
+                break;
         }
     }
     console.log(total);
