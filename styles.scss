@@ -13,12 +13,15 @@ main {
     display: grid;
     grid-template-columns: repeat(4, 50px);
     border: 2px solid black;
+    background-color: grey;
+    gap: 1px;
 
     &__btn {
         height: 50px;
         width: 50px;
         background-color: #1e2326;
         color: white;
+        border: none;
 
         &--oper {
             background-color: #5e4bb6;
@@ -33,10 +36,12 @@ main {
     &__formula {
         grid-column: 1 / 5;
         text-align: right;
+        background-color: white;
     }
 
     &__ans {
         grid-column: 1 / 5;
         text-align: right;
+        background-color: white;
     }
 }
