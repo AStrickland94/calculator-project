@@ -3,7 +3,7 @@ const calcBtns = document.querySelectorAll(".calc__btn");
 const formulaOutput = document.querySelector(".calc__formula");
 const totalOutput = document.querySelector(".calc__ans");
 let operator = "";
-let total = 0;
+let total = null;
 
 for (let i = 0; i < calcBtns.length; i++) {
     calcBtns[i].addEventListener("click", calculate);
@@ -11,6 +11,9 @@ for (let i = 0; i < calcBtns.length; i++) {
 
 function calculate(e) {
     // console.log(e.target.value);
+    if (total === null) {
+        total = parseInt(e.target.value);
+    }
     if (e.target.value >= 0) {
         formula += e.target.value;
         switch (operator) {
