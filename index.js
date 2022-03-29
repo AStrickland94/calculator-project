@@ -34,8 +34,6 @@ function numbers(e) {
 function others(e) {
     switch (e.target.value) {
         case "=":
-            console.log(num1);
-            console.log(num2);
             calculate(num1, num2, operator);
             break;
         case "del":
@@ -66,17 +64,11 @@ function others(e) {
             break;
         case "+/-":
             if (num1 && operator) {
-                console.log(formula.substring(formula.length - num2.length));
-                formula =
-                    formula.slice(0, formula.length - num2.length) +
-                    "-" +
-                    formula.slice(formula.length - num2.length);
-                num2 *= -1;
-                console.log(num2);
+                formula = formula.replace(num2, (num2 *= -1));
+                formulaOutput.innerText = formula;
             } else {
-                console.log(formula.substring(formula.length - num1.length));
-                num1 *= -1;
-                console.log(num1);
+                formula = formula.replace(num1, (num1 *= -1));
+                formulaOutput.innerText = formula;
             }
             break;
         case "C":
