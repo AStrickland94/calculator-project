@@ -1,4 +1,3 @@
-const calcBtns = document.querySelectorAll(".calc__btn");
 const operatorBtns = document.querySelectorAll(".oper");
 const numBtns = document.querySelectorAll(".num");
 const otherBtns = document.querySelectorAll(".other");
@@ -95,6 +94,9 @@ function others(e) {
 function operatorFunc(e) {
     if (num2) {
         calculate(num1, num2, operator);
+    }
+    if (operator) {
+        formula = formula.slice(0, -1);
     }
     switch (e.target.value) {
         case "+":
