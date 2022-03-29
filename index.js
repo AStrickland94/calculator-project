@@ -10,16 +10,6 @@ let total = 0;
 let num1 = "";
 let num2 = "";
 
-/* for (let i = 0; i < calcBtns.length; i++) {
-    calcBtns[i].addEventListener("click", (event) => calculate(event));
-} */
-
-// Function calculate
-// should only handle the maths (should take two number and an operator and return the accurate results)
-// when I click on equal I want to trigger the calculate function
-//
-// I want to get the first value user type as well as the operator, and the last value on display and feed that to my calculate function to get a result I can then display on the scren.
-
 for (let i = 0; i < numBtns.length; i++) {
     numBtns[i].addEventListener("click", numbers);
 }
@@ -28,7 +18,13 @@ for (let i = 0; i < operatorBtns.length; i++) {
     operatorBtns[i].addEventListener("click", operatorFunc);
 }
 
+for (let i = 0; i < otherBtns.length; i++) {
+    otherBtns[i].addEventListener("click", others);
+}
+
 function numbers(e) {
+    formula += e.target.value;
+    formulaOutput.innerText = formula;
     if (num1 && operator) {
         num2 += e.target.value;
     } else {
@@ -39,11 +35,30 @@ function numbers(e) {
 function others(e) {
     switch (e.target.value) {
         case "=":
-            calculate();
+            console.log(num1);
+            console.log(num2);
+            calculate(num1, num2, operator);
             break;
         case "del":
+            if (
+                parseInt(formula.substring(formula.length - 1)) != NaN ||
+                formula.substring(formula.length - 1) === "."
+            ) {
+                if (num1 && operator) {
+                    num2 = num2.slice(0, -1);
+                    formula = formula.slice(0, -1);
+                } else {
+                    num1 = num1.slice(0, -1);
+                    formula = formula.slice(0, -1);
+                }
+            } else {
+                formula = formula.slice(0, -1);
+                operator = "";
+            }
+            formulaOutput.innerText = formula;
             break;
         case ".":
+            formula += ".";
             if (num1 && operator) {
                 num2 += ".";
             } else {
@@ -51,6 +66,19 @@ function others(e) {
             }
             break;
         case "+/-":
+            if (num1 && operator) {
+                console.log(formula.substring(formula.length - num2.length));
+                formula =
+                    formula.slice(0, formula.length - num2.length) +
+                    "-" +
+                    formula.slice(formula.length - num2.length);
+                num2 *= -1;
+                console.log(num2);
+            } else {
+                console.log(formula.substring(formula.length - num1.length));
+                num1 *= -1;
+                console.log(num1);
+            }
             break;
         case "C":
             formula = "";
@@ -58,112 +86,61 @@ function others(e) {
             total = 0;
             num1 = "";
             num2 = "";
+            formulaOutput.innerText = "0";
+            totalOutput.innerText = "0";
             break;
     }
 }
 
 function operatorFunc(e) {
+    if (num2) {
+        calculate(num1, num2, operator);
+    }
     switch (e.target.value) {
         case "+":
-            console.log("Addition");
             operator = "+";
             formula += e.target.value;
             break;
         case "-":
-            console.log("Subtraction");
             operator = "-";
             formula += e.target.value;
             break;
         case "*":
-            console.log("Multiply");
             operator = "*";
             formula += e.target.value;
             break;
         case "/":
-            console.log("Divide");
             operator = "/";
             formula += e.target.value;
             break;
         case "x^y":
-            console.log("Power");
             operator = "^";
             formula += "^";
             break;
     }
-}
-
-function calculate(num1, num2, operator) {
-    switch (operator) {
-        case "+":
-            return Number(num1) + Number(num2);
-        case "-":
-            return Number(num1) - Number(num2);
-        case "*":
-            return Number(num1) * Number(num2);
-        case "/":
-            return Number(num1) / Number(num2);
-        case "^":
-            return Number(num1) ** Number(num2);
-    }
-}
-
-// Handle the button, operator, equal and decimal point logic separatly
-
-/* function calculate(e) {
-    // console.log(e.target.value);
-    if (total === null) {
-        total = parseInt(e.target.value);
-    }
-    if (e.target.value >= 0) {
-        formula += e.target.value;
-        switch (operator) {
-            case "+":
-                total += parseInt(e.target.value);
-                operator = "";
-                break;
-            case "-":
-                total -= parseInt(e.target.value);
-                operator = "";
-                break;
-            case "*":
-                total *= parseInt(e.target.value);
-                operator = "";
-                break;
-            case "/":
-                total /= parseInt(e.target.value);
-                operator = "";
-                break;
-        }
-    } else {
-        switch (e.target.value) {
-            case "+":
-                console.log("Addition");
-                operator = "+";
-                formula += e.target.value;
-                break;
-            case "-":
-                console.log("Subtraction");
-                operator = "-";
-                formula += e.target.value;
-                break;
-            case "*":
-                console.log("Multiply");
-                operator = "*";
-                formula += e.target.value;
-                break;
-            case "/":
-                console.log("Divide");
-                operator = "/";
-                formula += e.target.value;
-                break;
-            case "=":
-                console.log("Equals");
-                formula += e.target.value;
-                break;
-        }
-    }
-    console.log(total);
-    console.log(formula);
     formulaOutput.innerText = formula;
+}
+
+function calculate(a, b, op) {
+    switch (op) {
+        case "+":
+            total = Number(a) + Number(b);
+            break;
+        case "-":
+            total = Number(a) - Number(b);
+            break;
+        case "*":
+            total = Number(a) * Number(b);
+            break;
+        case "/":
+            total = Number(a) / Number(b);
+            break;
+        case "^":
+            total = Number(a) ** Number(b);
+            break;
+    }
     totalOutput.innerText = total;
-} */
+    num1 = total;
+    num2 = "";
+    operator = "";
+}
