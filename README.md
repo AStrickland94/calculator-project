@@ -1,12 +1,12 @@
-## calculator-project
+# calculator-project
 
 A project to create a functioning calculator using javascript (with html & css)
 
-# Goals
+## Goals
 
 My goal is to make a working calculator that contains functionality for each operator as well as additional keys such as decimals, negative and clear. The functionality will be created using HTML, SCSS and Javascript.
 
-# MVP:
+## MVP:
 
 -   HTML/SCSS
 
@@ -23,13 +23,13 @@ My goal is to make a working calculator that contains functionality for each ope
 3. It doesn't need to support orders of operation
 4. It should not use eval() or Function() constructor (edited)
 
-# Roadblocks
+## Roadblocks
 
 Trying to fit too much into a single function - makes code much more difficult to read and understand, higher chance of bugs
 
 Trying to make existing code work instead of starting afresh - takes longer to code, inefficient, causes issues later on
 
-# Yet to implement / Current issues
+## Yet to implement / Current issues
 
 If the number repeats in formula then negative will edit the first instance of the number instead of last
 
