@@ -103,11 +103,11 @@ function operatorFunc(e) {
             operator = "-";
             formula += e.target.value;
             break;
-        case "*":
+        case "x":
             operator = "*";
             formula += e.target.value;
             break;
-        case "/":
+        case "÷":
             operator = "/";
             formula += e.target.value;
             break;

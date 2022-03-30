@@ -41,6 +41,4 @@ multiple .'s in one number causes issues
 
 3,6 and 7 react strangely to decimals
 
-calculator is a little small
-
 delete isn't resetting the operator properly
