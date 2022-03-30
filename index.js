@@ -55,12 +55,16 @@ function others(e) {
             formulaOutput.innerText = formula;
             break;
         case ".":
+            if (formula.slice(formula.length - 1) === ".") {
+                break;
+            }
             formula += ".";
             if (num1 && operator) {
                 num2 += ".";
             } else {
                 num1 += ".";
             }
+            formulaOutput.innerText = formula;
             break;
         case "+/-":
             if (num1 && operator) {
